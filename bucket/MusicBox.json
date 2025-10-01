@@ -1,0 +1,25 @@
+{
+    "version": "1.0.0",
+    "description": "MusicBox - 高颜值、跨平台、开源的音乐播放器。",
+    "homepage": "https://github.com/asxez/MusicBox",
+    "license": "GPL-3.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/asxez/MusicBox/releases/download/0.2.1-beta/MusicBox-setup-0.2.1-beta.exe",
+            "hash": "sha256:e090e05e009f326d53e9b0bdcdb5f44e0046e653780396e3dfe37cb6d7ff5d1a"
+        }
+    },
+    "installer": {
+        "script": [
+            "Start-Process -Wait -FilePath \"$dir\\MusicBox-setup-0.2.1-beta.exe\" -ArgumentList '/S'"
+        ]
+    },
+    "checkver": {
+        "url": "https://api.github.com/repos/asxez/MusicBox/releases/latest",
+        "jsonpath": "$.tag_name",
+        "regex": "^v?([\\d.]+)$"
+    },
+    "autoupdate": {
+        "url": "https://github.com/asxez/MusicBox/releases/download/$version/MusicBox-setup-$version.exe"
+    }
+}
