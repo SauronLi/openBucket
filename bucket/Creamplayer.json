@@ -1,0 +1,32 @@
+{
+    "version": "5.2.2",
+    "description": "Creamplayer - 一个简洁的本地音乐播放器。",
+    "homepage": "https://hk.gh-proxy.com/https://github.com/Beadd/Creamplayer",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://hk.gh-proxy.com/https://github.com/Beadd/Creamplayer/releases/download/v5.2.2/creamplayer-win32-x64.zip",
+            "hash": "CBEE5A9832BE3CC5083EEFC8D6CA85FD843D17DB6242F9E7E06DC265D8704311"
+        }
+    },
+    "extract_dir": "creamplayer-win32-x64",
+    "bin": "creamplayer.exe",
+    "shortcuts": [
+        [
+            "creamplayer.exe",
+            "Creamplayer"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/Beadd/Creamplayer/releases/latest",
+        "jsonpath": "$.tag_name",
+        "regex": "^v([\\d.]+)$"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://hk.gh-proxy.com/https://github.com/Beadd/Creamplayer/releases/download/v$version/creamplayer-win32-x64.zip"
+            }
+        }
+    }
+}
