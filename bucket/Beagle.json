@@ -1,0 +1,25 @@
+{
+    "version": "1.1.0",
+    "description": "Beagle - 简洁高效的 Windows 文件搜索工具。",
+    "homepage": "https://github.com/JavanShen/beagle",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/JavanShen/beagle/releases/download/v1.1.0/beagle_1.1.0_x64-setup.exe",
+            "hash": "sha256:f903e6538b48eb317caef304cddddc8db0dea07048464e0ff84e37c8d4d4db61"
+        }
+    },
+    "installer": {
+        "script": [
+            "Start-Process -Wait -FilePath \"$dir\\beagle_1.1.0_x64-setup.exe\" -ArgumentList '/S'"
+        ]
+    },
+    "checkver": {
+        "url": "https://api.github.com/repos/JavanShen/beagle/releases/latest",
+        "jsonpath": "$.tag_name",
+        "regex": "^v?([0-9.]+)$"
+    },
+    "autoupdate": {
+        "url": "https://github.com/JavanShen/beagle/releases/download/v$version/beagle_$version_x64-setup.exe"
+    }
+}
